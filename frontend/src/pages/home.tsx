@@ -5,12 +5,10 @@ import React from 'react';
 const HomePage = () => (
   <Page name="home">
     <Navbar>
-      <NavLeft>
-        <Link icon="las la-bars" panelOpen="left" />
-      </NavLeft>
-      <NavTitle>인썸니아</NavTitle>
+      <NavLeft>{/* <Link icon="las la-bars" panelOpen="left" /> */}</NavLeft>
+      <NavTitle>COUPANG</NavTitle>
       <NavRight>
-        <Link href="/line_items" iconF7="cart" iconBadge={3} badgeColor="red" />
+        <Link href="/notifications" iconF7="bell" iconBadge={3} badgeColor="red" />
       </NavRight>
     </Navbar>
     <Categories />
