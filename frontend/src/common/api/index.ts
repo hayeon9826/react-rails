@@ -17,13 +17,13 @@ export const loginAPI = (params: any) => PlainAPI.post('/login', { user: params 
 export const signupAPI = (params: any) => PlainAPI.post('/signup', { user: params });
 export const logoutAPI = () => API.delete('/logout');
 
-// export const {
-//   query: getItems,
-//   get: getItem,
-//   create: createItem,
-//   update: updateItem,
-//   destroy: destroyItem,
-// } = ApiService('items');
+export const {
+  query: getObjects,
+  get: getObject,
+  create: createObject,
+  update: updateObject,
+  destroy: destroyObject,
+} = ApiService('objects');
 
 // export const { query: getUsers, get: getUser } = ApiService('users');
 // export const { query: getCategories, get: getCategory } = ApiService('categories');

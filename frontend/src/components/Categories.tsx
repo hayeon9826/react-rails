@@ -42,7 +42,7 @@ const Categories = () => {
       >
         {Array.from(Array(Math.ceil(categoryLength / 10)).keys()).map((i) => (
           <SwiperSlide key={i}>
-            <div className="mb-4 grid grid-cols-5 gap-2 p-2">
+            <div className="mb-3 grid grid-cols-5 gap-1 p-1">
               {categories.slice(i * 10, (i + 1) * 10).map((category: Category, i) => (
                 <div key={category.id}>
                   {categories.length ? (

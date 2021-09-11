@@ -22,6 +22,16 @@ export interface Category extends DefaultProps {
   image_path: string;
 }
 
+export interface Banner extends DefaultProps, Image {
+  name: string;
+  status: 'active' | 'disabled';
+  banner_type: 'main' | 'small' | 'advertize';
+  is_external: boolean;
+  position: number;
+  link: string;
+  image_path: string;
+}
+
 export interface Image extends DefaultProps {
   imagable_type: string;
   imagable_id: number;

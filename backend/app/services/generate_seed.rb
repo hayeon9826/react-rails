@@ -83,4 +83,18 @@ class GenerateSeed
       end
     end
   end
+
+  Banner.instance_eval do
+    def generate_seed
+      puts "generate banners"
+      4.times do |index|
+        create(
+          name: Faker::Lorem.sentence(word_count: 50),
+          position: index,
+          link: "#",
+          image: File.open("#{Rails.root}/public/banners/banner#{index + 1}.jpg")
+        )
+      end
+    end
+  end
 end

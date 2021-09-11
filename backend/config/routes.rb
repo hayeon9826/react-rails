@@ -22,8 +22,10 @@ Rails.application.routes.draw do
                sessions: "users/sessions",
                registrations: "users/registrations"
              }
+            
 
   resources :categories
+  resources :objects
   resources :items
   resources :images do
     post :dropzone, on: :collection
