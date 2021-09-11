@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL, getCategories } from '@api';
-import { Link, SkeletonBlock, SkeletonText } from 'framework7-react';
+import { Link, SkeletonBlock, SkeletonText, Swiper, SwiperSlide } from 'framework7-react';
 // import { useQuery } from 'react-query';
 import { Category } from '@constants';
 
@@ -20,38 +20,55 @@ const Categories = () => {
   //     </div>
   //   );
   // }
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [categoryLength, setCategoryLength] = useState<number>(0);
   useEffect(() => {
     (async () => {
       const { data } = await getCategories({ q: { s: ['title asc'] } });
       setCategories(data);
+      setCategoryLength(data.length);
     })();
   }, []);
 
   return (
-    <div className="mt-2 grid grid-cols-4 gap-2 p-2">
-      {categories.map((category: Category, i) => (
-        <div key={category.id}>
-          {categories.length ? (
-            <Link
-              href={`/items?category_id=${category.id}`}
-              className="bg-white h-20 flex flex-col items-center justify-center"
-              key={category.id}
-            >
-              <img src={API_URL + category.image_path} alt="#" className="w-14 h-14 rounded-lg shadow-sm" />
-              <span className="text-gray-500 mt-1">{category.title}</span>
-            </Link>
-          ) : (
-            <Link href="#" className="bg-white h-20 flex flex-col items-center justify-center" key={i}>
-              <SkeletonBlock slot="media" className="w-14 h-14 rounded-lg shadow-sm" effect="fade" />
-              <span className="text-gray-500 mt-1">
-                <SkeletonText>---</SkeletonText>
-              </span>
-            </Link>
-          )}
-        </div>
-      ))}
-    </div>
+    <>
+      <Swiper
+        className="h-25"
+        spaceBetween={30}
+        slidesPerView={1}
+        centeredSlides
+        pagination={{ clickable: true }}
+        observer
+      >
+        {Array.from(Array(Math.ceil(categoryLength / 10)).keys()).map((i) => (
+          <SwiperSlide key={i}>
+            <div className="mb-4 grid grid-cols-5 gap-2 p-2">
+              {categories.slice(i * 10, (i + 1) * 10).map((category: Category, i) => (
+                <div key={category.id}>
+                  {categories.length ? (
+                    <Link
+                      href={`/items?category_id=${category.id}`}
+                      className="bg-white h-20 flex flex-col items-center justify-center"
+                      key={category.id}
+                    >
+                      <img src={API_URL + category.image_path} alt="#" className="w-8 h-8 rounded-lg" />
+                      <span className="text-gray-500 mt-1">{category.title}</span>
+                    </Link>
+                  ) : (
+                    <Link href="#" className="bg-white h-20 flex flex-col items-center justify-center" key={i}>
+                      <SkeletonBlock slot="media" className="w-8 h-8 rounded-lg" effect="fade" />
+                      <span className="text-gray-500 mt-1">
+                        <SkeletonText>---</SkeletonText>
+                      </span>
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 };
 
