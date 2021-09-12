@@ -23,7 +23,7 @@ const Banners: React.FC = () => {
           style={{ height: '45vw', backgroundColor: '#e9ecef' }}
         >
           {banners?.objects.map((banner: Banner, i: number) => (
-            <SwiperSlide key={banner?.id || i}>
+            <SwiperSlide key={banner?.id || i} style={{ height: '45vw', backgroundColor: '#e9ecef' }}>
               {isLoading || isFetching ? (
                 <div className="bg-default">
                   <div className="background">
