@@ -52,7 +52,7 @@ const Categories = () => {
                       key={category.id}
                     >
                       <img src={API_URL + category.image_path} alt="#" className="w-8 h-8 rounded-lg" />
-                      <span className="text-gray-500 mt-1">{category.title}</span>
+                      <span className="text-gray-500 mt-1 font-semibold text-xs">{category.title}</span>
                     </Link>
                   ) : (
                     <Link href="#" className="bg-white h-20 flex flex-col items-center justify-center" key={i}>

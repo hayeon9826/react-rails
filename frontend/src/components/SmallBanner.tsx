@@ -4,10 +4,10 @@ import { Banner, Objects } from '@constants';
 import { Swiper, SwiperSlide, Link, SkeletonImage, SkeletonText } from 'framework7-react';
 import { useQuery } from 'react-query';
 
-const Banners: React.FC = () => {
+const SmallBanners: React.FC = () => {
   const { status, data: banners, isLoading, isFetching } = useQuery<Objects<Banner>, Error>(
     ['banners'],
-    getObjects({ model_name: 'banner', q: { banner_type_eq: 'main', status_eq: 'active' }, per: '16' }),
+    getObjects({ model_name: 'banner', q: { banner_type_eq: 'small', status_eq: 'active' }, per: '16' }),
   );
 
   return (
@@ -19,8 +19,7 @@ const Banners: React.FC = () => {
           spaceBetween={5}
           observer
           loop
-          pagination={{ clickable: true }}
-          style={{ height: '45vw', backgroundColor: '#e9ecef' }}
+          style={{ height: '25vw', backgroundColor: '#e9ecef' }}
         >
           {banners?.objects.map((banner: Banner, i: number) => (
             <SwiperSlide key={banner?.id || i}>
@@ -47,7 +46,7 @@ const Banners: React.FC = () => {
                       src={`${API_URL + banner?.image_path}`}
                       alt=""
                       className="rounded"
-                      style={{ maxHeight: '45vw', margin: '0 auto', backgroundColor: '#e9ecef', objectFit: 'cover' }}
+                      style={{ maxHeight: '25vw', margin: '0 auto', backgroundColor: '#e9ecef', objectFit: 'cover' }}
                     />
                   </a>
                 </>
@@ -60,4 +59,4 @@ const Banners: React.FC = () => {
   );
 };
 
-export default Banners;
+export default SmallBanners;

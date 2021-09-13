@@ -5,4 +5,6 @@ class Banner < ApplicationRecord
 
   validates :image, presence: true
 
+  INDEX_PERMIT = [:s, :banner_type_eq, :status_eq, { s: [] }].freeze
+
 end
