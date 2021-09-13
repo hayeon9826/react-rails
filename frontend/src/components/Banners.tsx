@@ -23,7 +23,7 @@ const Banners: React.FC = () => {
           style={{ height: '45vw', backgroundColor: '#e9ecef' }}
         >
           {banners?.objects.map((banner: Banner, i: number) => (
-            <SwiperSlide key={banner?.id || i} style={{ height: '45vw', backgroundColor: '#e9ecef' }}>
+            <SwiperSlide key={banner?.id || i}>
               {isLoading || isFetching ? (
                 <div className="bg-default">
                   <div className="background">
@@ -42,9 +42,14 @@ const Banners: React.FC = () => {
                 </div>
               ) : (
                 <>
-                  <Link href={`${banner?.link ? banner?.link : '#'}`}>
-                    <img src={`${API_URL + banner?.image_path}`} alt="" className="open-photo-browser w-100" />
-                  </Link>
+                  <a href={`${banner?.link ? banner?.link : '#'}`} className="w-100">
+                    <img
+                      src={`${API_URL + banner?.image_path}`}
+                      alt=""
+                      className="rounded"
+                      style={{ maxHeight: '45vw', margin: '0 auto', backgroundColor: '#e9ecef', objectFit: 'cover' }}
+                    />
+                  </a>
                 </>
               )}
             </SwiperSlide>
