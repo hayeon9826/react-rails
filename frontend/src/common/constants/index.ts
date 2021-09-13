@@ -14,6 +14,18 @@ export const ACTIONS = {
   SHOW: 'show',
 };
 
+export interface Objects<T> {
+  total_pages: number;
+  total_count: number;
+  objects: T[];
+}
+
+export interface InfiniteObjects<T> {
+  next_cursor: number;
+  total_count: number;
+  objects: T[];
+}
+
 export const DEFAULT_ACTIONS = Object.values(ACTIONS);
 
 /** 인터페이스 */

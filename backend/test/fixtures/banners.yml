@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image: 
+  status: 1
+  is_external: false
+  position: 1
+  link: MyString
+  banner_type: 1
+
+two:
+  name: MyString
+  image: 
+  status: 1
+  is_external: false
+  position: 1
+  link: MyString
+  banner_type: 1

@@ -5,7 +5,7 @@ module ImageUrl
     mount_uploader :image, ImageUploader
   end
 
-  def image_path(size = :square)
+  def image_path(size = :ratio)
     image? ? image.url(size) : "/image/profile.png"
   end
 

@@ -42,7 +42,7 @@ const Categories = () => {
       >
         {Array.from(Array(Math.ceil(categoryLength / 10)).keys()).map((i) => (
           <SwiperSlide key={i}>
-            <div className="mb-4 grid grid-cols-5 gap-2 p-2">
+            <div className="mb-3 grid grid-cols-5 gap-1 p-1">
               {categories.slice(i * 10, (i + 1) * 10).map((category: Category, i) => (
                 <div key={category.id}>
                   {categories.length ? (
@@ -52,7 +52,7 @@ const Categories = () => {
                       key={category.id}
                     >
                       <img src={API_URL + category.image_path} alt="#" className="w-8 h-8 rounded-lg" />
-                      <span className="text-gray-500 mt-1">{category.title}</span>
+                      <span className="text-gray-500 mt-1 font-semibold text-xs">{category.title}</span>
                     </Link>
                   ) : (
                     <Link href="#" className="bg-white h-20 flex flex-col items-center justify-center" key={i}>
