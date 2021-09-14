@@ -25,7 +25,8 @@ const HomePage = () => (
     <Banners />
     <Categories />
     <SmallBanner />
-    <br />
+    <ItemSwipers />
+    <ItemSwipers />
     <ItemSwipers />
   </Page>
 );

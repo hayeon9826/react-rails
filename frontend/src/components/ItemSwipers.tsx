@@ -62,9 +62,14 @@ const ItemSwipers: React.FC = () => {
 
   return (
     <>
-      <div className="font-semibold pl-2 mb-2">내가 본 상품의 연관상품</div>
+      <div className="font-semibold text-base border-t-8 border-gray-100 p-2 border-b">
+        내가 본 상품의 연관상품
+        <a className="float-right mr-1 text-sm font-normal text-indigo-600" href={`/items`}>
+          더보기
+        </a>
+      </div>
       {items && items.total_count > 0 && (
-        <Swiper speed={100} slidesPerView={3} spaceBetween={5} observer loop className="mb-3">
+        <Swiper speed={100} slidesPerView={3} spaceBetween={5} observer loop className="mb-3 mt-2">
           {items?.objects?.map((item: Item, i: number) => (
             <SwiperSlide key={item?.id || i}>
               <>

@@ -135,7 +135,7 @@ const ItemIndexPage = ({ f7route }) => {
                 ))
               : items.map((item: Item, i) => (
                   <React.Fragment key={item.id}>
-                    <div className="w-1/2 inline-flex grid-list-item relative">
+                    <div className="w-1/2 inline-flex grid-list-item relative border border-gray-100">
                       <ListItem
                         mediaItem
                         link={`/items/${item.id}`}
@@ -150,6 +150,15 @@ const ItemIndexPage = ({ f7route }) => {
                           src={API_URL + item.image_path}
                           className="w-40 m-auto radius rounded shadow"
                         />
+                        <div className="flex items-center">
+                          {[0, 1, 2, 3, 4].map((rating) => (
+                            <StarIcon
+                              key={rating}
+                              className={'text-yellow-400 h-5 w-5 flex-shrink-0'}
+                              aria-hidden="true"
+                            />
+                          ))}
+                        </div>
                       </ListItem>
                     </div>
                   </React.Fragment>
