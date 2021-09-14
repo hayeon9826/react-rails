@@ -6,6 +6,7 @@ import { Link, List, ListInput, ListItem, Navbar, NavRight, NavTitle, Page } fro
 import { map } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import i18n from '../../assets/lang/i18n';
+import { AiFillStar, AiOutlineCheck } from 'react-icons/ai';
 
 const SortStates = [
   ['created_at desc', '최신순'],
@@ -135,7 +136,7 @@ const ItemIndexPage = ({ f7route }) => {
                 ))
               : items.map((item: Item, i) => (
                   <React.Fragment key={item.id}>
-                    <div className="w-1/2 inline-flex grid-list-item relative">
+                    <div className="w-1/2 inline-flex grid-list-item relative border border-gray-100">
                       <ListItem
                         mediaItem
                         link={`/items/${item.id}`}
@@ -150,6 +151,21 @@ const ItemIndexPage = ({ f7route }) => {
                           src={API_URL + item.image_path}
                           className="w-40 m-auto radius rounded shadow"
                         />
+                        <span className="text-xs font-normal text-gray-500">
+                          <AiOutlineCheck /> 무료배송
+                        </span>
+                        <div className="flex items-center mt-2">
+                          {[0, 1, 2, 3, 4].map((rating) => (
+                            <>
+                              <AiFillStar
+                                key={rating}
+                                className={'text-yellow-400 h-5 w-5 flex-shrink-0'}
+                                aria-hidden="true"
+                              />
+                            </>
+                          ))}
+                          <span className="text-xs font-normal text-gray-500">(200)</span>
+                        </div>
                       </ListItem>
                     </div>
                   </React.Fragment>
