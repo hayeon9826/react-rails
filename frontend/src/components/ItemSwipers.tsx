@@ -49,16 +49,16 @@ const ItemSwipers: React.FC = () => {
     })();
   }, []);
 
-  const filterForm = useFormik<ItemFilterProps>({
-    initialValues: {
-      s: 'created_at desc',
-      category_id_eq: category_id,
-    },
-    onSubmit: async () => {
-      // await queryClient.removeQueries(ITEM_KEY);
-      // await refetch();
-    },
-  });
+  // const filterForm = useFormik<ItemFilterProps>({
+  //   initialValues: {
+  //     s: 'created_at desc',
+  //     category_id_eq: category_id,
+  //   },
+  //   onSubmit: async () => {
+  //     // await queryClient.removeQueries(ITEM_KEY);
+  //     // await refetch();
+  //   },
+  // });
 
   return (
     <>
