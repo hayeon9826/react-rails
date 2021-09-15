@@ -116,7 +116,7 @@ const ItemIndexPage = ({ f7route }) => {
           ))}
         </ListInput>
       </form>
-      <List noHairlines className="mt-0 text-sm font-thin ">
+      <List noHairlines className="mt-0 text-sm font-thin">
         {items && (
           <ul>
             {viewType === 'list'
@@ -151,8 +151,8 @@ const ItemIndexPage = ({ f7route }) => {
                           src={API_URL + item.image_path}
                           className="w-40 m-auto radius rounded shadow"
                         />
-                        <span className="text-xs font-normal text-gray-500">
-                          <AiOutlineCheck /> 무료배송
+                        <span className="mt-1 text-xs font-normal text-gray-500 flex">
+                          <AiOutlineCheck className="flex-shrink-0" /> 무료배송
                         </span>
                         <div className="flex items-center mt-2">
                           {[0, 1, 2, 3, 4].map((rating) => (
